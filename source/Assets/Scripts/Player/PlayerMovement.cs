@@ -47,10 +47,7 @@ public class PlayerMovement : ScriptBase
     /// </summary>
     void FixedUpdate()
     {
-        if (!InputControl.IsDashEnabled)
-        {
-            rigidbody2D.velocity = movement;
-        }
+        rigidbody2D.velocity = movement;
     }
 
     #endregion
