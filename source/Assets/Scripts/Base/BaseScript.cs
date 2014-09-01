@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ScriptBase : MonoBehaviour
+public class BaseScript : MonoBehaviour
 {
 }

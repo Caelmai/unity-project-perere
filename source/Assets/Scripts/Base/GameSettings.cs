@@ -16,5 +16,5 @@ public static class GameSettings
     /// <summary>
     /// Dash enabled.
     /// </summary>
-    public const string DashEnabled = "Jump";
+    public const string DashEnabled = "Dash";
 }

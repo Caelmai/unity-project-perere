@@ -27,4 +27,15 @@ public static class InputControl
             Input.GetAxis(GameSettings.VerticalMovement) * speed.y
         );
     }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
+    public static Vector2 GetShotDirection()
+    {
+        return Vector2.zero;
+
+
+    }
 }

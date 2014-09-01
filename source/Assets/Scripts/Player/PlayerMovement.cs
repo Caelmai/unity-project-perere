@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerMovement : ScriptBase
+public class PlayerMovement : BaseScript
 {
     #region Fields
 
@@ -32,12 +32,18 @@ public class PlayerMovement : ScriptBase
     /// </summary>
     void Update()
     {
+        // If dash button is pressed.
         if (InputControl.IsDashEnabled)
         {
+            // TODO
+            // 1. DASH sem lado selecionado, ele se movimenta para trás, ou seja, ao contrário do último lado.
+            // 2. Utilizar o LERP/SLERP para o DASH.
+            // 3. Para testar o DASH, preciso da animação final ou placeholder.
             movement = InputControl.GetMovement(dashSpeed);
         }
         else
         {
+            // Walk movement.
             movement = InputControl.GetMovement(walkSpeed);
         }
     }
