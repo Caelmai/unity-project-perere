@@ -4,11 +4,14 @@ using System.Collections.Generic;
 
 public class GenericPooling : BaseScript
 {
+    #region Fields
+    
     /// <summary>
     /// The prefab.
     /// </summary>
     [SerializeField]
     protected GameObject prefab;
+
     /// <summary>
     /// The initial size of pool.
     /// </summary>
@@ -24,6 +27,10 @@ public class GenericPooling : BaseScript
     /// </summary>
     private List<GameObject> pool = new List<GameObject>();
 
+    #endregion
+
+    #region Methods
+    
     /// <summary>
     /// Called when script start.
     /// </summary>
@@ -102,4 +109,6 @@ public class GenericPooling : BaseScript
 
         return obj;
     }
+
+    #endregion
 }

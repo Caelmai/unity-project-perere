@@ -7,5 +7,7 @@ public class BaseWeapon : GenericPooling
     
     #endregion
 
+    #region Methods
 
+    #endregion
 }

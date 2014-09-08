@@ -8,11 +8,11 @@ public class PlayerMovement : BaseScript
     /// <summary>
     /// Walk speed.
     /// </summary>
-    public Vector2 walkSpeed = Vector2.one;
+    public float walkSpeed;
     /// <summary>
     /// Dash speed.
     /// </summary>
-    public Vector2 dashSpeed = Vector2.one;
+    public float dashSpeed;
 
     /// <summary>
     /// Player movement.
@@ -53,6 +53,7 @@ public class PlayerMovement : BaseScript
     /// </summary>
     void FixedUpdate()
     {
+        // Movement through rigidbody.
         rigidbody2D.velocity = movement;
     }
 
