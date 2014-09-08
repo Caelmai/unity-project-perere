@@ -36,13 +36,13 @@ public class GenericPooling : BaseScript
     /// </summary>
     void Start()
     {
-        Initialize();
+        InitializePool();
     }
 
     /// <summary>
     /// Initializes pool.
     /// </summary>
-    private void Initialize()
+    private void InitializePool()
     {
         if (prefab == null)
         {

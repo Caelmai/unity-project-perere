@@ -23,6 +23,14 @@ public class BaseScript : MonoBehaviour
     /// </summary>
     void Awake()
     {
+        Initialize();
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    protected void Initialize()
+    {
         // Get main camera.
         mainCamera = Camera.main;
 

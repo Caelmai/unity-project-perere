@@ -40,12 +40,17 @@ public class PlayerMovement : BaseScript
             // 2. Utilizar o LERP/SLERP para o DASH.
             // 3. Para testar o DASH, preciso da animação final ou placeholder.
             movement = InputControl.GetMovement(dashSpeed);
+
+            PlayerDashTrails.Self.Dash();
         }
         else
         {
             // Walk movement.
             movement = InputControl.GetMovement(walkSpeed);
         }
+
+        // Enforce player inside the screen.
+        transform.EnforceBounds(mainCamera, renderer);
     }
 
     /// <summary>
