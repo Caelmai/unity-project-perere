@@ -27,7 +27,7 @@ public class BaseScript : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// Initialize global variables.
     /// </summary>
     protected void Initialize()
     {

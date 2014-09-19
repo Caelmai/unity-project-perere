@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class GenericPooling : BaseScript
 {
     #region Fields
-    
+
     /// <summary>
     /// The prefab.
     /// </summary>
@@ -30,7 +30,7 @@ public class GenericPooling : BaseScript
     #endregion
 
     #region Methods
-    
+
     /// <summary>
     /// Called when script start.
     /// </summary>
@@ -61,13 +61,13 @@ public class GenericPooling : BaseScript
     /// <param name="position">The positoin.</param>
     /// <param name="active">Is if active or not.</param>
     /// <returns>Returns a game object from pool.</returns>
-    public GameObject GetObjectFromPool(Vector2 position, bool active = true)
+    public GameObject GetObjectFromPool(Vector2 position, Quaternion rotation, bool active = true)
     {
         foreach (GameObject obj in pool)
         {
             if (!obj.activeInHierarchy)
             {
-                return PrepareObjectToResponse(obj, position, active);
+                return PrepareObjectToResponse(obj, position, rotation, active);
             }
         }
 
@@ -75,7 +75,7 @@ public class GenericPooling : BaseScript
         {
             GameObject obj = CreateNewObject();
 
-            return PrepareObjectToResponse(obj, position, active);
+            return PrepareObjectToResponse(obj, position, rotation, active);
         }
 
         return null;
@@ -102,9 +102,10 @@ public class GenericPooling : BaseScript
     /// <param name="position">The position.</param>
     /// <param name="active">Is is active or not.</param>
     /// <returns>Returns the game object.</returns>
-    private GameObject PrepareObjectToResponse(GameObject obj, Vector2 position, bool active)
+    private GameObject PrepareObjectToResponse(GameObject obj, Vector2 position, Quaternion rotation, bool active)
     {
         obj.transform.position = position;
+        obj.transform.rotation = rotation;
         obj.SetActive(active);
 
         return obj;

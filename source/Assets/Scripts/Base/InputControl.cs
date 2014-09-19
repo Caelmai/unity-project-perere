@@ -44,8 +44,12 @@ public static class InputControl
     /// </summary>
     /// <param name="mainCamera">Main camera.</param>
     /// <returns>Returns world mouse position.</returns>
-    public static Vector2 GetMousePosition(Camera mainCamera)
+    public static Vector3 GetMousePosition(Vector3 position, Camera mainCamera)
     {
-        return mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        var mousePosition = Input.mousePosition;
+        mousePosition.z = position.z - mainCamera.transform.position.z;
+        mousePosition = mainCamera.ScreenToWorldPoint(mousePosition);
+
+        return mousePosition;
     }
 }

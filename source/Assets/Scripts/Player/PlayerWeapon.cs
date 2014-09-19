@@ -5,8 +5,6 @@ public class PlayerWeapon : BaseWeapon
 {
     #region Fields
 
-    private Vector2 moveDirection;
-
     #endregion
 
     #region Methods
@@ -16,31 +14,20 @@ public class PlayerWeapon : BaseWeapon
     /// </summary>
     void Update()
     {
-        //Vector2 currentPosition = transform.position;
-
-        // Mouse position.
-        Vector2 mousePosition = InputControl.GetMousePosition(mainCamera);
-
-        //moveDirection = mousePosition - currentPosition;
-        //moveDirection.Normalize();
-
-        //Vector2 target = moveDirection + currentPosition;
-        //transform.position = Vector3.Lerp(currentPosition, target, 10 * Time.deltaTime);
-
-        // Set target position.
-        transform.position = mousePosition;
-        // Enforce player inside the screen.
-        transform.EnforceBounds(mainCamera, renderer);
-
         // If shot button is pressed.
         if (InputControl.IsShotEnabled)
         {
-            // Get new shot.
-            GameObject shot = GetObjectFromPool(player.transform.position);
+            // Mouse position.
+            Vector3 mousePosition = InputControl.GetMousePosition(transform.position, mainCamera);
 
-            // Set direction.
-            PlayerShot playerShot = shot.GetComponent<PlayerShot>();
-            playerShot.direction = transform.position;
+            // Figure out angle.
+            Quaternion angle = Quaternion.FromToRotation(Vector3.up, mousePosition - transform.position);
+
+            // Get shot from pool.
+            GameObject shot = GetObjectFromPool(transform.position, angle);
+
+            // Add force on shot.
+            shot.rigidbody2D.AddForce(shot.transform.up * GameSettings.PlayerShotSpeed);
         }
     }
 

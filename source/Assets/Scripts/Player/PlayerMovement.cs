@@ -6,15 +6,6 @@ public class PlayerMovement : BaseScript
     #region Fields
 
     /// <summary>
-    /// Walk speed.
-    /// </summary>
-    public float walkSpeed;
-    /// <summary>
-    /// Dash speed.
-    /// </summary>
-    public float dashSpeed;
-
-    /// <summary>
     /// Player movement.
     /// </summary>
     private Vector2 movement;
@@ -39,14 +30,12 @@ public class PlayerMovement : BaseScript
             // 1. DASH sem lado selecionado, ele se movimenta para trás, ou seja, ao contrário do último lado.
             // 2. Utilizar o LERP/SLERP para o DASH.
             // 3. Para testar o DASH, preciso da animação final ou placeholder.
-            movement = InputControl.GetMovement(dashSpeed);
-
-            PlayerDashTrails.Self.Dash();
+            movement = InputControl.GetMovement(GameSettings.PlayerDashSpeed);
         }
         else
         {
             // Walk movement.
-            movement = InputControl.GetMovement(walkSpeed);
+            movement = InputControl.GetMovement(GameSettings.PlayerWalkSpeed);
         }
 
         // Enforce player inside the screen.
