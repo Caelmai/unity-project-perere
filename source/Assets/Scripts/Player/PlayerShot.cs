@@ -1,21 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerShot : BaseScript
+public class PlayerShot : BaseShot
 {
+    #region Fields
+ 
+    #endregion
+
     #region Methods
 
-    /// <summary>
-    /// Update game logic.
-    /// </summary>
-    void Update()
+    void Start()
     {
-        // If shot is not visible (outside of camera view).
-        if (!renderer.isVisible)
-        {
-            // Return to pool.  
-            gameObject.SetActive(false);
-        }
+        currentShotDamage = GameSettings.PlayerInitialShotDamage;
     }
 
     #endregion

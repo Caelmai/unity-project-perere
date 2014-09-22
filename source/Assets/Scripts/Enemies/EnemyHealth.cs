@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BaseWeapon : GenericPooling
+public class EnemyHealth : BaseHealth
 {
     #region Fields
 
@@ -10,11 +10,11 @@ public class BaseWeapon : GenericPooling
     #region Methods
 
     /// <summary>
-    // Add force on shot.
+    /// Called when script start.
     /// </summary>
-    protected void Shot(GameObject shot, Vector2 force)
+    void Start()
     {
-        shot.rigidbody2D.AddForce(force);
+        currentHeath = GameSettings.CapeloboInitialHealth;
     }
 
     #endregion

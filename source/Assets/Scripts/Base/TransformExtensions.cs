@@ -9,7 +9,7 @@ public static class TransformExtensions
     public static void EnforceBounds(this Transform transform, Camera mainCamera, Renderer renderer)
     {
         // Current positions.
-        Vector2 currentPosition = transform.position;
+        Vector3 currentPosition = transform.position;
         Vector2 currentCameraPosition = mainCamera.transform.position;
         Vector2 boundSize = renderer.bounds.size / 2;
 
@@ -34,6 +34,9 @@ public static class TransformExtensions
         {
             currentPosition.y = Mathf.Clamp(currentPosition.y, yMin, yMax);
         }
+
+        // Fix z axis position.
+        currentPosition.z = currentPosition.y;
 
         // Set position.
         transform.position = currentPosition;

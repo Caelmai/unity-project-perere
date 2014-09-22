@@ -27,7 +27,10 @@ public class PlayerWeapon : BaseWeapon
             GameObject shot = GetObjectFromPool(transform.position, angle);
 
             // Add force on shot.
-            shot.rigidbody2D.AddForce(shot.transform.up * GameSettings.PlayerShotSpeed);
+            Shot(shot, shot.transform.up * GameSettings.PlayerShotSpeed);
+
+            // Kickback shot.
+            Kickback(-shot.transform.up * GameSettings.PlayerKickbackShot);
         }
     }
 

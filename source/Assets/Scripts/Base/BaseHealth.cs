@@ -1,32 +1,54 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BaseHealth : MonoBehaviour
+public class BaseHealth : BaseScript
 {
     #region Fields
 
     /// <summary>
-    /// The health.
+    /// The shot tag to compare trigger collision.
     /// </summary>
     [SerializeField]
-    private int health;
+    private ShotTag shotTag;
 
     /// <summary>
-    /// The initial health.
+    /// Current health.
     /// </summary>
-    private int initialHealth;
+    protected float currentHeath;
 
     #endregion
 
     #region Methods
 
-    public void Damage(int damage)
+    /// <summary>
+    /// When trigger is enabled detect other collider against this one.
+    /// </summary>
+    /// <param name="collider">The collider.</param>
+    void OnTriggerEnter2D(Collider2D collider)
     {
-        health -= damage;
+        if (collider.tag == shotTag.ToString())
+        {
+            BaseShot baseShot = collider.GetComponent<BaseShot>();
 
-        if (health <= 0)
+            Damage(baseShot.ShotDamage);
+        }
+    }
+
+    /// <summary>
+    /// Set damage.
+    /// </summary>
+    /// <param name="damage">The damage value.</param>
+    protected void Damage(int damage)
+    {
+        print(string.Format("{0} WAS HIT!", gameObject.name));
+
+        currentHeath -= damage;
+
+        if (currentHeath <= 0)
         {
             print(gameObject.name + " died!");
+
+            //gameObject.SetActive(false);
         }
     }
 
