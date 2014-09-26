@@ -40,8 +40,6 @@ public class BaseHealth : BaseScript
     /// <param name="damage">The damage value.</param>
     protected void Damage(int damage)
     {
-        print(string.Format("{0} WAS HIT!", gameObject.name));
-
         currentHeath -= damage;
 
         if (currentHeath <= 0)

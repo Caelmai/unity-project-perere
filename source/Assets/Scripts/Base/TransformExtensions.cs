@@ -35,10 +35,17 @@ public static class TransformExtensions
             currentPosition.y = Mathf.Clamp(currentPosition.y, yMin, yMax);
         }
 
-        // Fix z axis position.
-        currentPosition.z = currentPosition.y;
-
         // Set position.
         transform.position = currentPosition;
+    }
+
+    /// <summary>
+    // Add force.
+    /// </summary>
+    public static void TryAddRigidbodyForce(this Transform transform, Vector2 force)
+    {
+        if (transform.rigidbody2D == null) return;
+
+        transform.rigidbody2D.AddForce(force);
     }
 }

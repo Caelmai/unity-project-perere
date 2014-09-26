@@ -58,7 +58,7 @@ public static class GameSettings
     /// <summary>
     /// Player shot speed.
     /// </summary>
-    public const float PlayerShotSpeed = 500f;
+    public const float PlayerShotSpeed = 1000f;
     /// <summary>
     /// Player initial shot damage;
     /// </summary>
@@ -66,7 +66,7 @@ public static class GameSettings
     /// <summary>
     /// Player time to recover.
     /// </summary>
-    public const float PlayerTimeToRecover = 2f;
+    public const float PlayerTimeToRecover = 1f;
     /// <summary>
     /// Player initial health.
     /// </summary>
@@ -79,6 +79,10 @@ public static class GameSettings
     /// Player kickback when shot.
     /// </summary>
     public const float PlayerKickbackShot = 100f;
+    /// <summary>
+    /// Player recover changer timer.
+    /// </summary>
+    public const int PlayerRecoverChangerTimer = 5;
 
     #endregion
 

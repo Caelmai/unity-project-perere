@@ -9,13 +9,13 @@ public class BaseWeapon : GenericPooling
 
     #region Methods
 
-    /// <summary>
-    // Add force on shot.
-    /// </summary>
-    protected void Shot(GameObject shot, Vector2 force)
-    {
-        shot.rigidbody2D.AddForce(force);
-    }
+    ///// <summary>
+    //// Add force on shot.
+    ///// </summary>
+    //protected void Shot(GameObject shot, Vector2 force)
+    //{
+    //    shot.rigidbody2D.AddForce(force);
+    //}
 
     #endregion
 }

@@ -27,10 +27,13 @@ public class PlayerWeapon : BaseWeapon
             GameObject shot = GetObjectFromPool(transform.position, angle);
 
             // Add force on shot.
-            Shot(shot, shot.transform.up * GameSettings.PlayerShotSpeed);
+            shot.transform.TryAddRigidbodyForce(shot.transform.up * GameSettings.PlayerShotSpeed);
 
             // Kickback shot.
-            Kickback(-shot.transform.up * GameSettings.PlayerKickbackShot);
+            transform.parent.TryAddRigidbodyForce(-shot.transform.up * GameSettings.PlayerKickbackShot);
+
+            // Start camera shake.
+            CameraShake.Instance.Shake();
         }
     }
 

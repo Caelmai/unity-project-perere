@@ -38,13 +38,5 @@ public class BaseScript : MonoBehaviour
         player = GameObject.FindGameObjectWithTag(GameSettings.PlayerTag);
     }
 
-    /// <summary>
-    /// Add force back when kickback.
-    /// </summary>
-    protected void Kickback(Vector2 force)
-    {
-        rigidbody2D.AddForce(force);
-    }
-
     #endregion
 }
