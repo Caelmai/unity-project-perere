@@ -1,20 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BaseHealth : BaseScript
+public abstract class BaseHealth : BaseScript
 {
     #region Fields
+
+    /// <summary>
+    /// Current health.
+    /// </summary>
+    protected int currentHeath;
 
     /// <summary>
     /// The shot tag to compare trigger collision.
     /// </summary>
     [SerializeField]
-    private ShotTag shotTag;
-
-    /// <summary>
-    /// Current health.
-    /// </summary>
-    protected float currentHeath;
+    private ShotOwnerTag shotOwnerTag;
 
     #endregion
 
@@ -23,14 +23,15 @@ public class BaseHealth : BaseScript
     /// <summary>
     /// When trigger is enabled detect other collider against this one.
     /// </summary>
-    /// <param name="collider">The collider.</param>
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.tag == shotTag.ToString())
+        if (collider.tag == shotOwnerTag.ToString())
         {
-            BaseShot baseShot = collider.GetComponent<BaseShot>();
+            BaseShot shot = collider.GetComponent<BaseShot>();
 
-            Damage(baseShot.ShotDamage);
+            Damage(shot.Damage);
+
+            shot.Active = false;
         }
     }
 
@@ -44,11 +45,14 @@ public class BaseHealth : BaseScript
 
         if (currentHeath <= 0)
         {
-            print(gameObject.name + " died!");
-
-            //gameObject.SetActive(false);
+            OnDeath();
         }
     }
+
+    /// <summary>
+    /// A method to be implement by each character health script.
+    /// </summary>
+    protected abstract void OnDeath();
 
     #endregion
 }

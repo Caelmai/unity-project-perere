@@ -5,6 +5,18 @@ public class PlayerWeapon : BaseWeapon
 {
     #region Fields
 
+    /// <summary>
+    /// If kickback shot is enabled.
+    /// </summary>
+    [SerializeField]
+    private bool kickbackShotEnabled;
+
+    /// <summary>
+    /// If camera shake is enabled.
+    /// </summary>
+    [SerializeField]
+    private bool cameraShakeEnabled;
+
     #endregion
 
     #region Methods
@@ -30,11 +42,25 @@ public class PlayerWeapon : BaseWeapon
             shot.transform.TryAddRigidbodyForce(shot.transform.up * GameSettings.PlayerShotSpeed);
 
             // Kickback shot.
-            transform.parent.TryAddRigidbodyForce(-shot.transform.up * GameSettings.PlayerKickbackShot);
+            if (kickbackShotEnabled)
+            {
+                transform.parent.TryAddRigidbodyForce(-shot.transform.up * GameSettings.PlayerKickbackShot);
+            }
 
             // Start camera shake.
-            CameraShake.Instance.Shake();
+            if (cameraShakeEnabled)
+            {
+                CameraShake.Instance.Shake();
+            }
         }
+    }
+
+    /// <summary>
+    /// To increase weapon when use a cassava item.
+    /// </summary>
+    public void IncreaseWeapon()
+    {
+        // TODO: Criar comportamento de distância do tiro (elevando - localscale - e caindo em seguida).
     }
 
     #endregion

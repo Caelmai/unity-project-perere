@@ -46,10 +46,18 @@ public class PlayerHealth : BaseHealth
     }
 
     /// <summary>
+    /// Draw status.
+    /// </summary>
+    void OnGUI()
+    {
+        GUI.Label(new Rect(20, 20, 120, 40), "HEALTH: " + currentHeath);
+    }
+
+    /// <summary>
     /// Detect other collider against this one.
     /// </summary>
     /// <param name="collision">The collision.</param>
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionStay2D(Collision2D collision)
     {
         if (!isRecovering && collision.gameObject.tag == GameSettings.EnemyTag)
         {
@@ -62,7 +70,23 @@ public class PlayerHealth : BaseHealth
     }
 
     /// <summary>
-    /// Recover.
+    /// To increase health when use a guaraná item.
+    /// </summary>
+    public void IncreaseHealth()
+    {
+        currentHeath += GameSettings.GuaranaHealingEffect;
+    }
+
+    /// <summary>
+    /// A method to watch player death.
+    /// </summary>
+    protected override void OnDeath()
+    {
+        print("The player is dead!");
+    }
+
+    /// <summary>
+    /// Recover control.
     /// </summary>
     private void Recover()
     {

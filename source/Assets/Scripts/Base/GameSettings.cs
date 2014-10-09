@@ -21,6 +21,14 @@ public static class GameSettings
     /// Enemy shot tag.
     /// </summary>
     public const string EnemyShotTag = "EnemyShot";
+    /// <summary>
+    /// Item tag.
+    /// </summary>
+    public const string ItemTag = "Item";
+    /// <summary>
+    /// Gold tag.
+    /// </summary>
+    public static string GoldTag = "Gold";
 
     #endregion
 
@@ -50,11 +58,11 @@ public static class GameSettings
     /// <summary>
     /// Player walk speed.
     /// </summary>
-    public const float PlayerWalkSpeed = 5f;
+    public const float PlayerWalkSpeed = 5f, PlayerWalkAcaiBerryEffectSpeed = 7.5f;
     /// <summary>
     /// Player dash speed.
     /// </summary>
-    public const float PlayerDashSpeed = 20f;
+    public const float PlayerDashSpeed = 20f, PlayerDashAcaiBerryEffectSpeed = 30f;
     /// <summary>
     /// Player shot speed.
     /// </summary>
@@ -86,15 +94,26 @@ public static class GameSettings
 
     #endregion
 
+    #region Items (Variables)
+
+    /// <summary>
+    /// Açai berry effect time.
+    /// </summary>
+    public const float AcaiBerryEffectTime = 5f;
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public const int GuaranaHealingEffect  = 1;
+
+    #endregion
+
     #region Enemies (Variables)
 
     /// <summary>
     /// Capelobo initial health.
     /// </summary>
-    public const float CapeloboInitialHealth = 1;
-
-
+    public const int CapeloboInitialHealth = 1;
 
     #endregion
-
 }

@@ -17,5 +17,13 @@ public class EnemyHealth : BaseHealth
         currentHeath = GameSettings.CapeloboInitialHealth;
     }
 
+    /// <summary>
+    /// A method to watch enemy death.
+    /// </summary>
+    protected override void OnDeath()
+    {
+        print(string.Format("The {0} is dead!", gameObject.name));
+    }
+
     #endregion
 }

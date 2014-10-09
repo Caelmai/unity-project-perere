@@ -8,7 +8,7 @@ public class BaseShot : BaseScript
     /// <summary>
     /// The shot damage.
     /// </summary>
-    protected int currentShotDamage;
+    protected int currentDamage;
 
     #endregion
 
@@ -17,9 +17,18 @@ public class BaseShot : BaseScript
     /// <summary>
     /// Get the shot damage.
     /// </summary>
-    public int ShotDamage
+    public int Damage
     {
-        get { return currentShotDamage; }
+        get { return currentDamage; }
+    }
+
+    /// <summary>
+    /// Set if game object is active.
+    /// </summary>
+    public bool Active
+    {
+        get { return gameObject.activeInHierarchy; }
+        set { gameObject.SetActive(value); }
     }
 
     #endregion

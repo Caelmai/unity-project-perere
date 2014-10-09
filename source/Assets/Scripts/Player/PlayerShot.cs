@@ -14,7 +14,7 @@ public class PlayerShot : BaseShot
     /// </summary>
     void Start()
     {
-        currentShotDamage = GameSettings.PlayerInitialShotDamage;
+        currentDamage = GameSettings.PlayerInitialShotDamage;
     }
 
     #endregion
