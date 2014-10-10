@@ -6,6 +6,16 @@ public class PlayerMovement : BaseScript
     #region Fields
 
     /// <summary>
+    /// The player game object.
+    /// </summary>
+    public static GameObject PlayerGameObject;
+
+    /// <summary>
+    /// Default movement speed method name.
+    /// </summary>
+    private const string SetDefaultSpeedMethod = "SetDefaultSpeed";
+
+    /// <summary>
     /// Player movement.
     /// </summary>
     private Vector2 movement;
@@ -27,6 +37,14 @@ public class PlayerMovement : BaseScript
     #endregion
 
     #region Methods
+
+    /// <summary>
+    /// Called when game start.
+    /// </summary>
+    void Awake()
+    {
+        PlayerGameObject = gameObject;
+    }
 
     /// <summary>
     /// Called when script start.
@@ -57,7 +75,7 @@ public class PlayerMovement : BaseScript
         }
 
         // Enforce player inside the screen.
-        transform.EnforceBounds(mainCamera, renderer);
+        transform.EnforceBounds(CameraShake.MainCamera, renderer);
     }
 
     /// <summary>
@@ -77,7 +95,7 @@ public class PlayerMovement : BaseScript
         currentWalkSpeed = GameSettings.PlayerWalkAcaiBerryEffectSpeed;
         currentDashSpeed = GameSettings.PlayerDashAcaiBerryEffectSpeed;
 
-        Invoke("SetDefaultSpeed", GameSettings.AcaiBerryEffectTime);
+        Invoke(SetDefaultSpeedMethod, GameSettings.AcaiBerryEffectTime);
     }
 
     /// <summary>

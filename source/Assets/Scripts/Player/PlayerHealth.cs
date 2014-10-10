@@ -6,6 +6,11 @@ public class PlayerHealth : BaseHealth
     #region Fields
 
     /// <summary>
+    /// Default shot speed method name.
+    /// </summary>
+    protected const string RecoverMethod = "Recover";
+
+    /// <summary>
     /// Player is recovering.
     /// </summary>
     private bool isRecovering;
@@ -63,7 +68,7 @@ public class PlayerHealth : BaseHealth
         {
             isRecovering = true;
 
-            Invoke("Recover", GameSettings.PlayerTimeToRecover);
+            Invoke(RecoverMethod, GameSettings.PlayerTimeToRecover);
 
             Damage(GameSettings.PlayerCollisionAgainstEnemies);
         }
@@ -88,13 +93,11 @@ public class PlayerHealth : BaseHealth
     /// <summary>
     /// Recover control.
     /// </summary>
-    private void Recover()
+    protected void Recover()
     {
         renderer.enabled = true;
 
         isRecovering = false;
-
-        CancelInvoke("Recover");
     }
 
     #endregion

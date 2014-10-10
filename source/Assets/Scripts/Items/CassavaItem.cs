@@ -10,7 +10,7 @@ public class CassavaItem : BaseItem
     /// </summary>
     public override void OnUse()
     {
-        player.GetComponentInChildren<PlayerWeapon>().IncreaseWeapon();
+        PlayerMovement.PlayerGameObject.GetComponentInChildren<PlayerWeapon>().IncreaseShotSpeed();
 
         base.OnUse();
     }

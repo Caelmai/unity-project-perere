@@ -58,7 +58,7 @@ public static class GameSettings
     /// <summary>
     /// Player walk speed.
     /// </summary>
-    public const float PlayerWalkSpeed = 5f, PlayerWalkAcaiBerryEffectSpeed = 7.5f;
+    public const float PlayerWalkSpeed = 2.5f, PlayerWalkAcaiBerryEffectSpeed = 5f;
     /// <summary>
     /// Player dash speed.
     /// </summary>
@@ -66,7 +66,7 @@ public static class GameSettings
     /// <summary>
     /// Player shot speed.
     /// </summary>
-    public const float PlayerShotSpeed = 1000f;
+    public const float PlayerShotSpeed = 250f, PlayerShotCassavaEffectSpeed = 500f;
     /// <summary>
     /// Player initial shot damage;
     /// </summary>
@@ -99,12 +99,15 @@ public static class GameSettings
     /// <summary>
     /// Açai berry effect time.
     /// </summary>
-    public const float AcaiBerryEffectTime = 5f;
-
+    public const float AcaiBerryEffectTime = 10f;
     /// <summary>
-    /// 
+    /// Cassava effect time.
     /// </summary>
-    public const int GuaranaHealingEffect  = 1;
+    public const float CassavaEffectTime = 10f;
+    /// <summary>
+    /// Guaraná healing hffect.
+    /// </summary>
+    public const int GuaranaHealingEffect = 1;
 
     #endregion
 

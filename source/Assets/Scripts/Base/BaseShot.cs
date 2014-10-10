@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BaseShot : BaseScript
+public abstract class BaseShot : BaseScript
 {
     #region Fields
 
@@ -44,7 +44,7 @@ public class BaseShot : BaseScript
         if (!renderer.isVisible)
         {
             // Return to pool.  
-            gameObject.SetActive(false);
+            Active = false;
         }
     }
 

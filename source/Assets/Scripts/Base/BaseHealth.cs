@@ -14,7 +14,7 @@ public abstract class BaseHealth : BaseScript
     /// The shot tag to compare trigger collision.
     /// </summary>
     [SerializeField]
-    private ShotOwnerTag shotOwnerTag;
+    private ShotOwnerTag shotOwnerTag = 0;
 
     #endregion
 

@@ -47,6 +47,8 @@ public class PlayerInventory : BaseScript
 
         if (selectedItem != null)
         {
+            particleEmitter.Emit();
+
             selectedItem.OnUse();
 
             collectedItems.Remove(selectedItem);

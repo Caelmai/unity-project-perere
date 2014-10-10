@@ -5,6 +5,8 @@ public class PlayerShot : BaseShot
 {
     #region Fields
 
+    private bool isRising;
+
     #endregion
 
     #region Methods
@@ -15,6 +17,15 @@ public class PlayerShot : BaseShot
     void Start()
     {
         currentDamage = GameSettings.PlayerInitialShotDamage;
+    }
+
+    /// <summary>
+    /// Called when
+    /// </summary>
+    public void OnShotBehaviorAnimationIsEnded()
+    {
+        // Return to pool.  
+        Active = false;
     }
 
     #endregion

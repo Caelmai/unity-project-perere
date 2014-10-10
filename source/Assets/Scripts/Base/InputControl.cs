@@ -42,7 +42,7 @@ public static class InputControl
     /// <summary>
     /// Get world mouse position.
     /// </summary>
-    /// <param name="mainCamera">Main camera.</param>
+    /// <param name="CameraShake.MainCamera">Main camera.</param>
     /// <returns>Returns world mouse position.</returns>
     public static Vector3 GetMousePosition(Vector3 position, Camera mainCamera)
     {

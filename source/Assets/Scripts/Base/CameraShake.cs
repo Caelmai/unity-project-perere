@@ -6,6 +6,11 @@ public class CameraShake : MonoBehaviour
     #region Fields
 
     /// <summary>
+    /// The main camera.
+    /// </summary>
+    public static Camera MainCamera;
+
+    /// <summary>
     /// Singleton.
     /// </summary>
     private static CameraShake instance;
@@ -47,6 +52,14 @@ public class CameraShake : MonoBehaviour
     #endregion
 
     #region Methods
+
+    /// <summary>
+    /// Called when game start.
+    /// </summary>
+    void Awake()
+    {
+        MainCamera = Camera.main;
+    }
 
     /// <summary>
     /// Update game logic.

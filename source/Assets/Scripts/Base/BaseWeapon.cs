@@ -1,21 +1,28 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BaseWeapon : GenericPooling
+public abstract class BaseWeapon : GenericPooling
 {
     #region Fields
+
+    /// <summary>
+    /// Default shot speed method name.
+    /// </summary>
+    protected const string SetDefaultShotSpeedMethod = "SetDefaultShotSpeed";
+
+    /// <summary>
+    /// Current shot speed.
+    /// </summary>
+    protected float currentShotSpeed;
 
     #endregion
 
     #region Methods
 
-    ///// <summary>
-    //// Add force on shot.
-    ///// </summary>
-    //protected void Shot(GameObject shot, Vector2 force)
-    //{
-    //    shot.rigidbody2D.AddForce(force);
-    //}
+    /// <summary>
+    /// To set default shot speed.
+    /// </summary>
+    protected abstract void SetDefaultShotSpeed();
 
     #endregion
 }

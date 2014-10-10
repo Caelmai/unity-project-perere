@@ -16,12 +16,12 @@ public class GenericPooling : BaseScript
     /// The initial size of pool.
     /// </summary>
     [SerializeField]
-    private int poolSize;
+    private int poolSize = 0;
     /// <summary>
     /// If pool can grow or not.
     /// </summary>
     [SerializeField]
-    private bool poolCanGrow;
+    private bool poolCanGrow = false;
     /// <summary>
     /// A pool of prefab object.
     /// </summary>

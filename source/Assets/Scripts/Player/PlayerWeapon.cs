@@ -19,7 +19,30 @@ public class PlayerWeapon : BaseWeapon
 
     #endregion
 
+    #region Properties
+
+    /// <summary>
+    /// Se if cassava effect is active.
+    /// </summary>
+    private bool ActiveCassavaEffect
+    {
+        set
+        {
+            kickbackShotEnabled = cameraShakeEnabled = value;
+        }
+    }
+
+    #endregion
+
     #region Methods
+
+    /// <summary>
+    /// When script starts.
+    /// </summary>
+    void Start()
+    {
+        SetDefaultShotSpeed();
+    }
 
     /// <summary>
     /// Update game logic.
@@ -30,7 +53,7 @@ public class PlayerWeapon : BaseWeapon
         if (InputControl.IsShotEnabled)
         {
             // Mouse position.
-            Vector3 mousePosition = InputControl.GetMousePosition(transform.position, mainCamera);
+            Vector3 mousePosition = InputControl.GetMousePosition(transform.position, CameraShake.MainCamera);
 
             // Figure out angle.
             Quaternion angle = Quaternion.FromToRotation(Vector3.up, mousePosition - transform.position);
@@ -39,7 +62,7 @@ public class PlayerWeapon : BaseWeapon
             GameObject shot = GetObjectFromPool(transform.position, angle);
 
             // Add force on shot.
-            shot.transform.TryAddRigidbodyForce(shot.transform.up * GameSettings.PlayerShotSpeed);
+            shot.transform.TryAddRigidbodyForce(shot.transform.up * currentShotSpeed);
 
             // Kickback shot.
             if (kickbackShotEnabled)
@@ -58,9 +81,23 @@ public class PlayerWeapon : BaseWeapon
     /// <summary>
     /// To increase weapon when use a cassava item.
     /// </summary>
-    public void IncreaseWeapon()
+    public void IncreaseShotSpeed()
     {
-        // TODO: Criar comportamento de distância do tiro (elevando - localscale - e caindo em seguida).
+        ActiveCassavaEffect = true;
+
+        currentShotSpeed = GameSettings.PlayerShotCassavaEffectSpeed;
+
+        Invoke(SetDefaultShotSpeedMethod, GameSettings.CassavaEffectTime);
+    }
+
+    /// <summary>
+    /// To set default shot speed.
+    /// </summary>
+    protected override void SetDefaultShotSpeed()
+    {
+        ActiveCassavaEffect = false;
+
+        currentShotSpeed = GameSettings.PlayerShotSpeed;
     }
 
     #endregion
