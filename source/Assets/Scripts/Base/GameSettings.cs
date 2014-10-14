@@ -53,6 +53,15 @@ public static class GameSettings
 
     #endregion
 
+    #region All (Variables)
+
+    /// <summary>
+    /// Update renderer effect time.
+    /// </summary>
+    public const float UpdateRendererEffectTime = 0.2f;
+
+    #endregion
+
     #region Player (Variables)
 
     /// <summary>
@@ -72,10 +81,6 @@ public static class GameSettings
     /// </summary>
     public const int PlayerInitialShotDamage = 1;
     /// <summary>
-    /// Player time to recover.
-    /// </summary>
-    public const float PlayerTimeToRecover = 1f;
-    /// <summary>
     /// Player initial health.
     /// </summary>
     public const int PlayerInitialHealth = 5;
@@ -88,9 +93,9 @@ public static class GameSettings
     /// </summary>
     public const float PlayerKickbackShot = 100f;
     /// <summary>
-    /// Player recover changer timer.
+    /// Player invoke original renderer.
     /// </summary>
-    public const int PlayerRecoverChangerTimer = 5;
+    public const float PlayerInvokeOriginalRenderer = 1.5f;
 
     #endregion
 
@@ -114,9 +119,18 @@ public static class GameSettings
     #region Enemies (Variables)
 
     /// <summary>
+    /// Enemy invoke original renderer.
+    /// </summary>
+    public const float EnemyInvokeOriginalRenderer = 0.5f;
+
+    /// <summary>
     /// Capelobo initial health.
     /// </summary>
     public const int CapeloboInitialHealth = 1;
+    /// <summary>
+    /// Capelobo trigger attack radius.
+    /// </summary>
+    public const float CapeloboTriggerAttackRadius = 2f;
 
     #endregion
 }

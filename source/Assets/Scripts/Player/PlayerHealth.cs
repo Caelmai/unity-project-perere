@@ -5,48 +5,19 @@ public class PlayerHealth : BaseHealth
 {
     #region Fields
 
-    /// <summary>
-    /// Default shot speed method name.
-    /// </summary>
-    protected const string RecoverMethod = "Recover";
-
-    /// <summary>
-    /// Player is recovering.
-    /// </summary>
-    private bool isRecovering;
-
-    /// <summary>
-    /// Recovering changer timer.
-    /// </summary>
-    private int recoverChangerTimer = 0;
-
     #endregion
 
     #region Methods
 
     /// <summary>
-    /// Called when script start.
+    /// Detect other collider against this one.
     /// </summary>
-    void Start()
+    /// <param name="collision">The collision.</param>
+    void OnCollisionStay2D(Collision2D collision)
     {
-        currentHeath = GameSettings.PlayerInitialHealth;
-    }
-
-    /// <summary>
-    /// Update game logic.
-    /// </summary>
-    void Update()
-    {
-        if (isRecovering)
+        if (!wasHit && collision.gameObject.tag == GameSettings.EnemyTag)
         {
-            recoverChangerTimer += 1;
-
-            if (recoverChangerTimer > GameSettings.PlayerRecoverChangerTimer)
-            {
-                recoverChangerTimer = 0;
-
-                renderer.enabled = !renderer.enabled;
-            }
+            Damage(GameSettings.PlayerCollisionAgainstEnemies);
         }
     }
 
@@ -59,19 +30,29 @@ public class PlayerHealth : BaseHealth
     }
 
     /// <summary>
-    /// Detect other collider against this one.
+    /// Initialize variables.
     /// </summary>
-    /// <param name="collision">The collision.</param>
-    void OnCollisionStay2D(Collision2D collision)
+    protected override void Starting()
     {
-        if (!isRecovering && collision.gameObject.tag == GameSettings.EnemyTag)
-        {
-            isRecovering = true;
+        currentHeath = GameSettings.PlayerInitialHealth;
 
-            Invoke(RecoverMethod, GameSettings.PlayerTimeToRecover);
+        invokeOriginalRenderer = GameSettings.PlayerInvokeOriginalRenderer;
+    }
 
-            Damage(GameSettings.PlayerCollisionAgainstEnemies);
-        }
+    /// <summary>
+    /// Update game logic.
+    /// </summary>
+    protected override void Updating()
+    {
+        renderer.enabled = !renderer.enabled;
+    }
+
+    /// <summary>
+    /// A method called when player dies.
+    /// </summary>
+    protected override void OnDeath()
+    {
+        print("The player is dead!");
     }
 
     /// <summary>
@@ -83,21 +64,13 @@ public class PlayerHealth : BaseHealth
     }
 
     /// <summary>
-    /// A method to watch player death.
+    /// A method to return renderer to orginal setting.
     /// </summary>
-    protected override void OnDeath()
+    protected override void SetOriginalRenderer()
     {
-        print("The player is dead!");
-    }
+        base.SetOriginalRenderer();
 
-    /// <summary>
-    /// Recover control.
-    /// </summary>
-    protected void Recover()
-    {
         renderer.enabled = true;
-
-        isRecovering = false;
     }
 
     #endregion

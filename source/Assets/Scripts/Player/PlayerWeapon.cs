@@ -53,7 +53,7 @@ public class PlayerWeapon : BaseWeapon
         if (InputControl.IsShotEnabled)
         {
             // Mouse position.
-            Vector3 mousePosition = InputControl.GetMousePosition(transform.position, CameraShake.MainCamera);
+            Vector3 mousePosition = InputControl.GetMousePosition(transform.position, GameManager.Instance.MainCamera);
 
             // Figure out angle.
             Quaternion angle = Quaternion.FromToRotation(Vector3.up, mousePosition - transform.position);

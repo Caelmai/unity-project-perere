@@ -10,7 +10,7 @@ public class AcaiBerryItem : BaseItem
     /// </summary>
     public override void OnUse()
     {
-        PlayerMovement.PlayerGameObject.SendMessage("IncreaseSpeed");
+        GameManager.Instance.PlayerObject.SendMessage("IncreaseSpeed");
 
         base.OnUse();
     }

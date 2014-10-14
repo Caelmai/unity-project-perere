@@ -10,7 +10,7 @@ public class GuaranaItem : BaseItem
     /// </summary>
     public override void OnUse()
     {
-        PlayerMovement.PlayerGameObject.SendMessage("IncreaseHealth");
+        GameManager.Instance.PlayerObject.SendMessage("IncreaseHealth");
 
         base.OnUse();
     }

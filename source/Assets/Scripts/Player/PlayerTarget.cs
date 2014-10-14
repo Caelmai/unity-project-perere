@@ -9,12 +9,12 @@ public class PlayerTarget : BaseScript
     void Update()
     {
         // Mouse position.
-        Vector3 mousePosition = InputControl.GetMousePosition(transform.position, CameraShake.MainCamera);
+        Vector3 mousePosition = InputControl.GetMousePosition(transform.position, GameManager.Instance.MainCamera);
 
         // Set target position.
         transform.position = mousePosition;
 
         // Enforce target renderer inside of screen.
-        transform.EnforceBounds(CameraShake.MainCamera, renderer);
+        transform.EnforceBounds(GameManager.Instance.MainCamera, renderer);
     }
 }
