@@ -20,6 +20,21 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public GameObject PlayerObject;
 
+    /// <summary>
+    /// The player movement script.
+    /// </summary>
+    public PlayerMovement PlayerMovementScript;
+
+    /// <summary>
+    /// The player health script.
+    /// </summary>
+    public PlayerHealth PlayerHealthScript;
+
+    /// <summary>
+    /// The player weapon script.
+    /// </summary>
+    public PlayerWeapon PlayerWeaponScript;
+
     #endregion
 
     #region Properties
@@ -49,6 +64,10 @@ public class GameManager : MonoBehaviour
         MainCamera = Camera.main;
 
         PlayerObject = GameObject.FindGameObjectWithTag(GameSettings.PlayerTag);
+
+        PlayerMovementScript = PlayerObject.GetComponent<PlayerMovement>();
+        PlayerHealthScript = PlayerObject.GetComponent<PlayerHealth>();
+        PlayerWeaponScript = PlayerObject.GetComponentInChildren<PlayerWeapon>();
     }
 
     #endregion

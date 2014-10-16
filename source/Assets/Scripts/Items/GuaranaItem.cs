@@ -3,6 +3,15 @@ using System.Collections;
 
 public class GuaranaItem : BaseItem
 {
+    #region Fields
+
+    /// <summary>
+    /// Invoke original renderer.
+    /// </summary>
+    protected float message;
+
+    #endregion
+
     #region Methods
 
     /// <summary>
@@ -10,7 +19,7 @@ public class GuaranaItem : BaseItem
     /// </summary>
     public override void OnUse()
     {
-        GameManager.Instance.PlayerObject.SendMessage("IncreaseHealth");
+        GameManager.Instance.PlayerMovementScript.IncreaseSpeed();
 
         base.OnUse();
     }
