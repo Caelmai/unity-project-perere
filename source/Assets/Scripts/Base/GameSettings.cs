@@ -53,6 +53,15 @@ public static class GameSettings
 
     #endregion
 
+    #region LAYERS
+
+    /// <summary>
+    /// Player layer mask.
+    /// </summary>
+    public const string PlayerLayerMask = "Player";
+
+    #endregion
+
     #region All (Variables)
 
     /// <summary>
@@ -122,6 +131,10 @@ public static class GameSettings
     /// Enemy invoke original renderer.
     /// </summary>
     public const float EnemyInvokeOriginalRenderer = 0.5f;
+    /// <summary>
+    /// Enemy distance to reach player.
+    /// </summary>
+    public const float EnemyDistanceToReachTarget = 0.5f;
 
     /// <summary>
     /// Capelobo initial health.
@@ -130,7 +143,20 @@ public static class GameSettings
     /// <summary>
     /// Capelobo trigger attack radius.
     /// </summary>
-    public const float CapeloboTriggerAttackRadius = 2f;
+    public const float CapeloboTriggerAttackRadius = 10f;
+
+    /// <summary>
+    /// Arranca-línguas initial health.
+    /// </summary>
+    public const int ArracaLinguasInitialHealth = 1;
+    /// <summary>
+    /// Arranca-línguas trigger attack radius.
+    /// </summary>
+    public const float ArracaLinguasTriggerAttackRadius = 5f;
+    /// <summary>
+    /// Arranca-línguas walk speed.
+    /// </summary>
+    public const float ArracaLinguasWalkSpeed = 1.5f;
 
     #endregion
 }

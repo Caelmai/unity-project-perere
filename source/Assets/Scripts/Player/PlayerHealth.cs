@@ -66,9 +66,9 @@ public class PlayerHealth : BaseHealth
     /// <summary>
     /// A method to return renderer to orginal setting.
     /// </summary>
-    protected override void SetOriginalRenderer()
+    protected override void ResetComponentsSettings()
     {
-        base.SetOriginalRenderer();
+        base.ResetComponentsSettings();
 
         renderer.enabled = true;
     }

@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 454519a5173f482468ab9b1c1c991031
+guid: 4d5271f9223522542bc4953a4a95c21c
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Saci Side Run Animation_0
-    21300002: Saci Side Run Animation_1
-    21300004: Saci Side Run Animation_2
-    21300006: Saci Side Run Animation_3
+    21300000: Itens_0
+    21300002: Guarana
+    21300004: Acai
+    21300006: Cassava
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -28,7 +28,7 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 1024
   textureSettings:
-    filterMode: -1
+    filterMode: 1
     aniso: 1
     mipBias: -1
     wrapMode: 1
@@ -47,45 +47,35 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Saci Side Run Animation_0
+    - name: Guarana
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 64
-        height: 64
+        x: 400
+        y: 384
+        width: 240
+        height: 192
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Saci Side Run Animation_1
+    - name: Acai
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
-        width: 64
-        height: 64
+        x: 1424
+        y: 384
+        width: 240
+        height: 192
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Saci Side Run Animation_2
+    - name: Cassava
       rect:
         serializedVersion: 2
-        x: 128
-        y: 0
-        width: 64
-        height: 64
+        x: 2400
+        y: 400
+        width: 336
+        height: 336
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Saci Side Run Animation_3
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

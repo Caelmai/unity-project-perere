@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class PlayerMovement : BaseScript
 {
@@ -9,22 +8,19 @@ public class PlayerMovement : BaseScript
     /// Default movement speed method name.
     /// </summary>
     private const string SetDefaultSpeedMethod = "SetDefaultSpeed";
-
+    
     /// <summary>
     /// Player movement.
     /// </summary>
     private Vector2 movement;
-
     /// <summary>
     /// Is dash enabled?
     /// </summary>
     private bool isDashEnabled;
-
     /// <summary>
     /// Current walk speed.
     /// </summary>
     private float currentWalkSpeed;
-
     /// <summary>
     /// Current dash speed.
     /// </summary>

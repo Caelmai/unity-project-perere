@@ -8,7 +8,7 @@ public abstract class BaseHealth : BaseScript
     /// <summary>
     /// Default recover color method name.
     /// </summary>
-    protected const string OriginalRendererMethod = "SetOriginalRenderer";
+    protected const string OriginalRendererMethod = "ResetComponentsSettings";
 
     /// <summary>
     /// The sprite renderer.
@@ -21,7 +21,7 @@ public abstract class BaseHealth : BaseScript
     protected int currentHeath;
 
     /// <summary>
-    /// The shot tag to compare trigger collision.
+    /// The shot tag to compare trigger colliders.
     /// </summary>
     [SerializeField]
     private ShotOwnerTag shotOwnerTag = 0;
@@ -119,7 +119,7 @@ public abstract class BaseHealth : BaseScript
     /// <summary>
     /// A method to return renderer to orginal setting.
     /// </summary>
-    protected virtual void SetOriginalRenderer()
+    protected virtual void ResetComponentsSettings()
     {
         wasHit = false;
     }

@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class CameraShake : MonoBehaviour
+public class CameraShake : BaseScript
 {
     #region Fields
 

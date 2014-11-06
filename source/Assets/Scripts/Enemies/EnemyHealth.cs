@@ -59,14 +59,16 @@ public class EnemyHealth : BaseHealth
     protected override void OnDeath()
     {
         print(string.Format("The {0} is dead!", gameObject.name));
+
+        Destroy(gameObject);
     }
 
     /// <summary>
     /// A method to return renderer to orginal setting.
     /// </summary>
-    protected override void SetOriginalRenderer()
+    protected override void ResetComponentsSettings()
     {
-        base.SetOriginalRenderer();
+        base.ResetComponentsSettings();
 
         spriteRenderer.color = originalColor;
     }
